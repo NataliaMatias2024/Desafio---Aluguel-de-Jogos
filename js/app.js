@@ -1,27 +1,21 @@
 function alterarStatus(id){
-    let click = document.getElementById(`game-${id}`);
-    mudarStatusImagem(id);
-    mudarStatusClasse(id);
-   }
 
-   function mudarStatusImagem(id){
-       let click = document.getElementById(`game-${id}`);
-       let classeImagem = click.querySelector(".dashboard__item__img");
+    //Reconhece o click
+    let click = document.getElementById(`game-${id}`); 
+
+    //Definir variavel responsável pelo elemnto ancora "Alugar/Devolver"
+    let classeBotao = click.querySelector(".dashboard__item__button"); 
+
+    //Definir variavel pela mudança de cor da imagem ao se "Alugar/Devolver"
+    let classeImagem = click.querySelector(".dashboard__item__img"); 
+
        if (classeImagem.classList.contains("dashboard__item__img--rented")) {
-           classeImagem.classList.remove("dashboard__item__img--rented");  
+           classeImagem.classList.remove("dashboard__item__img--rented");
+           classeBotao.classList.remove("dashboard__item__button--return");
+           classeBotao.innerHTML = `Alugar`;  
        } else {
            classeImagem.classList.add("dashboard__item__img--rented");
-       }
-   }
-   
-   function mudarStatusClasse(id){
-       let click = document.getElementById(`game-${id}`);
-       let classeStatus = click.querySelector(".dashboard__item__button");
-       if (classeStatus.classList.contains("dashboard__item__button--return")) {
-           classeStatus.classList.remove("dashboard__item__button--return");
-           classeStatus.innerHTML = `Alugar`;
-       } else {
-           classeStatus.classList.add("dashboard__item__button--return");
-           classeStatus.innerHTML = `Devolver`;
+           classeBotao.classList.add("dashboard__item__button--return");
+           classeBotao.innerHTML = `Devolver`;
        }
    }
