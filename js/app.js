@@ -9,10 +9,11 @@ function alterarStatus(id){
     //Definir variavel pela mudança de cor da imagem ao se "Alugar/Devolver"
     let classeImagem = click.querySelector(".dashboard__item__img"); 
 
-       if (classeImagem.classList.contains("dashboard__item__img--rented")) {
+       if ((classeImagem.classList.contains("dashboard__item__img--rented")) && (confirm("Você está prester a devolver esse jogo."))) {
+           //a condiçao confirme cria uma caixa de dialogo com OK e cancelar, OK semrpe retorna true e cancelar false
            classeImagem.classList.remove("dashboard__item__img--rented");
            classeBotao.classList.remove("dashboard__item__button--return");
-           classeBotao.innerHTML = `Alugar`;  
+           classeBotao.innerHTML = `Alugar`; 
        } else {
            classeImagem.classList.add("dashboard__item__img--rented");
            classeBotao.classList.add("dashboard__item__button--return");
